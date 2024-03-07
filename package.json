@@ -1,15 +1,16 @@
 {
   "name": "rekt-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "# Usage",
   "main": "rekt-server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./node_modules/mocha/bin/mocha --timeout=80000 ./rekt-server.js"
   },
   "private": true,
   "dependencies": {
     "casper-cep18-js-client": "^1.0.2",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mocha": "^10.2.0"
   }
 }

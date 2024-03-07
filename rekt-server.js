@@ -5,16 +5,16 @@ const WebSocket = require('ws')
 // Config
 const NODE_URL = 'https://event-store-api-clarity-testnet.make.services/rpc';
 const NETWORK_NAME = 'casper-test';
-const CEP18_CONTRACT_PACKAGE_HASH = '693a9f4c4b3025b6eafa2ce31aadb5c609d31e3479a72f036a792bde7d691623';
-const CEP18_CONTRACT_HASH = '9a5808029f14656dc9f26a3f2b7e5de03356b86f01b1f08cd37fc416d3d8ca3f';
-const PAYMENT_CONTRACT_HASH = '2b681cad1330242184aee163940ce073f169e06986f64a5e6709616fba955b28';
-const CSPR_CLOUD_KEY = 'INSERT CSPR CLOUD KEY HERE';
+const CEP18_CONTRACT_PACKAGE_HASH = 'd56c63e2e46c3608c723b0997a996936ee2f7bd990e82df2ad6b77c25948da41';
+const CEP18_CONTRACT_HASH = '4dca6b5ceb6262f29423fa2b527bb8b9ef2e5e137424c996c5843cd9188561e0';
+const PAYMENT_CONTRACT_HASH = '699d9da5e99079bce8ccb86fd2ffad80cc2acda18a3a08d9117b3390e6975a37';
+const CSPR_CLOUD_KEY = 'b062f588-d52a-4aaf-b93a-c74c2f8f31fa';
 const CSPR_CLOUD_STREAMING_URL = 'wss://streaming.testnet.cspr.cloud';
 const CSPR_CLOUD_REST_API_URL = 'https://api.testnet.cspr.cloud';
 
 const owner = Keys.Ed25519.parseKeyFiles(
-    `/Users/mssteuer/Desktop/public_key.pem`,
-    `/Users/mssteuer/Desktop/secret_key.pem`
+    `./keys/public_key.pem`,
+    `./keys/secret_key.pem`
 );
 const cep18 = new CEP18Client(NODE_URL, NETWORK_NAME);
 cep18.setContractHash(
@@ -44,7 +44,7 @@ ws.on('open', function open() {
                         owner: CLPublicKey.fromHex(recipient),
                         amount: 50000000
                     },
-                    350_000_000,
+                    450_000_000,
                     owner.publicKey,
                     NETWORK_NAME,
                     [owner]
